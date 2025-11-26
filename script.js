@@ -185,4 +185,13 @@ function showToast(message, color = "#4caf50") {
     toast.classList.remove("show");
   }, 3000); // disappears after 3 seconds
 }
-
+if (localStorage.getItem("loggedIn") !== "true") {
+  window.location.href = "login.html";
+}
+function logout() {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "login.html";
+}
+if (localStorage.getItem("loggedIn") !== "true") {
+  window.location.href = "login.html";
+}
