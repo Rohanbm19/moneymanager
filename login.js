@@ -1,28 +1,25 @@
 const loginForm = document.getElementById("loginForm");
 const msg = document.getElementById("msg");
 
-loginForm.addEventListener("submit", function(event) {
-  event.preventDefault();
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  const user = document.getElementById("username").value.trim();
-  const pass = document.getElementById("password").value.trim();
+  const username = document.getElementById("username").value.trim();
 
-  // Get stored account
-  const savedUser = localStorage.getItem("savedUsername");
-  const savedPass = localStorage.getItem("savedPassword");
-
-  if (user === savedUser && pass === savedPass) {
-    msg.style.color = "green";
-    msg.textContent = "Login successful!";
-
-    localStorage.setItem("loggedIn", "true");
-
-    setTimeout(() => {
-      window.location.href = "calculator.html";
-    }, 800);
-
-  } else {
+  if (!username) {
+    msg.textContent = "Enter username";
     msg.style.color = "red";
-    msg.textContent = "Invalid username or password!";
+    return;
   }
+
+  // 🔐 session only
+  localStorage.setItem("isLoggedIn", "true");
+  localStorage.setItem("currentUser", username);
+
+  msg.textContent = "Login successful";
+  msg.style.color = "green";
+
+  setTimeout(() => {
+    window.location.href = "calculator.html";
+  }, 500);
 });

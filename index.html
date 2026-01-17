@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+
+    <form id="loginForm" autocomplete="off">
+      <!-- stop browser autofill -->
+      <input type="text" name="fakeuser" style="display:none">
+      <input type="password" name="fakepass" style="display:none">
+
+      <input
+        type="text"
+        id="username"
+        placeholder="Username"
+        autocomplete="off"
+        required
+      >
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        autocomplete="new-password"
+        required
+      >
+
+      <button type="submit">Login</button>
+      <p id="msg"></p>
+    </form>
+  </div>
+
+  <script src="./login.js"></script>
+</body>
+</html>
